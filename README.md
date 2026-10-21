@@ -59,7 +59,7 @@ Para publicação manual, execute `npm run check` e envie a pasta `dist/` pelo N
 - `/proprietarios` e `/proprietarios.html`: corretagem com marketing para proprietários.
 - Os contatos e a inscrição no curso apontam para [@sejafastup](https://www.instagram.com/sejafastup/).
 - Os quatro módulos, bônus e materiais do curso estão presentes; preços não são exibidos.
-- O vídeo promocional específico do curso está indicado como “em breve”, aguardando o arquivo ou a URL definitiva.
+- O vídeo promocional do curso fica em `public/videos/curso-corretor-de-autoridade.mp4` (capa em `curso-poster.jpg`).
 
 ## Animação
 

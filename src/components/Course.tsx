@@ -3,7 +3,6 @@ import {
   Play, Smartphone, Clapperboard, Brain, Megaphone, UserCheck,
   BookOpen, FileText, LayoutTemplate, MessageCircle, ArrowUp, Check, GraduationCap, Sparkles
 } from 'lucide-react';
-import { Logo } from './Logo';
 
 const MODULES = [
   {
@@ -84,20 +83,19 @@ export function Course() {
             </div>
           </div>
 
-          {/* Video placeholder */}
-          <div className="relative min-h-[300px] overflow-hidden motion-card rounded-3xl border border-white/10 bg-gradient-to-br from-ink-800 to-ink-900" role="img" aria-label="Apresentação do curso Corretor de Autoridade. Vídeo em breve.">
+          {/* Course video */}
+          <div className="relative flex items-center justify-center overflow-hidden motion-card rounded-3xl border border-white/10 bg-gradient-to-br from-ink-800 to-ink-900 p-5 sm:p-7">
             <div className="absolute inset-0 grid-bg opacity-40" />
             <div className="pointer-events-none absolute -bottom-20 -right-20 h-56 w-56 rounded-full bg-brand-500/20 blur-3xl" />
-            <div className="absolute inset-0 grid place-items-center">
-              <div className="flex flex-col items-center">
-                <Logo className="mb-6 w-[176px]" />
-                <span className="grid h-14 w-14 place-items-center rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-400" aria-hidden="true">
-                  <Play className="h-5 w-5" />
-                </span>
-                <p className="mt-5 text-sm font-medium text-ink-200">Vídeo promocional do curso</p>
-                <p className="mt-1 text-xs text-ink-400">Em breve disponível aqui</p>
-              </div>
-            </div>
+            <video
+              className="relative aspect-[9/16] w-full max-w-[300px] rounded-2xl border border-white/10 bg-ink-900 object-cover shadow-card"
+              src="/videos/curso-corretor-de-autoridade.mp4"
+              poster="/videos/curso-poster.jpg"
+              controls
+              playsInline
+              preload="metadata"
+              aria-label="Vídeo de apresentação do curso Corretor de Autoridade"
+            />
           </div>
         </div>
 
