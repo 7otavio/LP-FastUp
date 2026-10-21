@@ -19,7 +19,7 @@ export function About() {
         <div className="reveal max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-400">Quem somos</p>
           <h2 className="mt-4 font-display text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
-            Marketing que dá um <span className="text-gradient-green">Up</span> no seu negócio
+            Seu negócio merece um <span className="text-gradient-green">Up</span>
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-ink-200">
             A <span className="font-semibold text-white">Fast Up</span> é uma empresa de marketing digital
