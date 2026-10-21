@@ -14,7 +14,7 @@ export function Contact() {
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-400">Contato</p>
             <h2 className="mt-4 font-display text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
-              Vamos levar o seu negócio <span className="text-gradient-green">para cima</span>
+              Vamos dar um <span className="text-gradient-green">Up</span> no seu negócio
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-ink-200">
               Conte para a Fast Up o que você precisa. A conversa começa pelo nosso Instagram.
