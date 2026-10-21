@@ -1,3 +1,4 @@
+import { whatsappLink } from '@/contact';
 import { Home, Video, Megaphone, MessageCircle, ArrowUpRight } from 'lucide-react';
 
 const STEPS = [
@@ -19,7 +20,7 @@ export function Brokerage() {
             </div>
             <h1 className="mt-6 font-display text-4xl font-extrabold leading-tight text-white sm:text-5xl">Seu imóvel com <span className="text-gradient-green">marketing por trás.</span></h1>
             <p className="mt-6 text-lg leading-relaxed text-ink-200">A Fast Up também atua na venda do seu imóvel. Unimos produção de vídeo e tráfego pago para valorizar a apresentação, dar visibilidade e gerar contatos.</p>
-            <a href="https://www.instagram.com/sejafastup/" target="_blank" rel="noreferrer noopener" className="group mt-8 inline-flex items-center gap-2 rounded-full bg-brand-500 px-6 py-3.5 text-sm font-bold text-ink-900 shadow-glow transition-colors hover:bg-brand-400">Falar sobre meu imóvel <ArrowUpRight className="h-4 w-4" /></a>
+            <a href={whatsappLink('Olá! Vim pelo site da Fast Up e quero falar sobre a venda do meu imóvel.')} target="_blank" rel="noreferrer noopener" className="group mt-8 inline-flex items-center gap-2 rounded-full bg-brand-500 px-6 py-3.5 text-sm font-bold text-ink-900 shadow-glow transition-colors hover:bg-brand-400">Falar sobre meu imóvel <ArrowUpRight className="h-4 w-4" /></a>
           </div>
           <img src="/assets/interior.jpg" width={1200} height={900} alt="Sala de estar iluminada com decoração contemporânea" className="aspect-[4/3] w-full rounded-3xl border border-white/10 object-cover shadow-card" />
         </div>

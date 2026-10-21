@@ -1,3 +1,4 @@
+import { whatsappLink } from '@/contact';
 import { Video, Megaphone, ArrowUp, Check, Users, Building2, MessageCircle, BarChart3, Sparkles } from 'lucide-react';
 
 const SERVICES = [
@@ -131,7 +132,9 @@ export function Services() {
             </p>
           </div>
           <a
-            href="#contato"
+            href={whatsappLink()}
+            target="_blank"
+            rel="noreferrer noopener"
             className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-ink-900 shadow-glow transition-all hover:bg-brand-400 hover:shadow-glow-lg"
           >
             Falar com a Fast Up

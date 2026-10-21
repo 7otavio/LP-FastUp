@@ -1,4 +1,5 @@
-import { ArrowUp, Instagram } from 'lucide-react';
+import { EMAIL, WHATSAPP_DISPLAY, whatsappLink } from '@/contact';
+import { ArrowUp, Instagram, MessageCircle, Mail } from 'lucide-react';
 import { Logo } from './Logo';
 
 const NAV = [
@@ -34,6 +35,14 @@ export function Footer() {
             >
               <Instagram className="h-4 w-4" /> @sejafastup
             </a>
+            <div className="mt-4 space-y-2 text-sm text-ink-200">
+              <a href={whatsappLink()} target="_blank" rel="noreferrer noopener" className="flex items-center gap-2 transition-colors hover:text-brand-400">
+                <MessageCircle className="h-4 w-4 text-brand-400" /> {WHATSAPP_DISPLAY}
+              </a>
+              <a href={`mailto:${EMAIL}`} className="flex items-center gap-2 transition-colors hover:text-brand-400">
+                <Mail className="h-4 w-4 text-brand-400" /> {EMAIL}
+              </a>
+            </div>
           </div>
 
           {/* Nav */}

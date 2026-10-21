@@ -1,7 +1,7 @@
-import { ArrowUpRight, Instagram, Video, GraduationCap } from 'lucide-react';
+import { EMAIL, WHATSAPP_DISPLAY, whatsappLink } from '@/contact';
+import { ArrowUpRight, MessageCircle, Mail, Video, GraduationCap } from 'lucide-react';
 import { Logo } from './Logo';
 
-const INSTAGRAM = 'https://www.instagram.com/sejafastup/';
 
 export function Contact() {
   return (
@@ -17,7 +17,7 @@ export function Contact() {
               Vamos dar um <span className="text-gradient-green">Up</span> no seu negócio
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-ink-200">
-              Conte para a Fast Up o que você precisa. A conversa começa pelo nosso Instagram.
+              Conte para a Fast Up o que você precisa pelo WhatsApp. A resposta é rápida, afinal, somos Fast.
             </p>
             <div className="mt-8 space-y-4">
               <div className="flex gap-3">
@@ -35,18 +35,21 @@ export function Contact() {
             <Logo className="w-[192px]" />
             <div className="mt-10 flex items-center gap-3">
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-brand-500/15 text-brand-400">
-                <Instagram className="h-6 w-6" />
+                <MessageCircle className="h-6 w-6" />
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.16em] text-ink-300">Nosso Instagram</p>
-                <p className="mt-1 text-lg font-bold text-white">@sejafastup</p>
+                <p className="text-xs uppercase tracking-[0.16em] text-ink-300">Nosso WhatsApp</p>
+                <p className="mt-1 text-lg font-bold text-white">{WHATSAPP_DISPLAY}</p>
               </div>
             </div>
             <h3 className="mt-7 font-display text-2xl font-bold text-white">Seu próximo passo começa com uma conversa.</h3>
             <p className="mt-3 text-sm leading-relaxed text-ink-200">Fale com a equipe sobre os serviços ou tire suas dúvidas sobre o curso.</p>
-            <a href={INSTAGRAM} target="_blank" rel="noreferrer noopener" className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-500 px-6 py-4 text-base font-bold text-ink-900 shadow-glow transition-all hover:bg-brand-400 hover:shadow-glow-lg">
-              Falar com a Fast Up
+            <a href={whatsappLink()} target="_blank" rel="noreferrer noopener" className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-500 px-6 py-4 text-base font-bold text-ink-900 shadow-glow transition-all hover:bg-brand-400 hover:shadow-glow-lg">
+              Falar no WhatsApp
               <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+            <a href={`mailto:${EMAIL}`} className="mt-4 flex items-center justify-center gap-2 text-sm text-ink-300 transition-colors hover:text-brand-300">
+              <Mail className="h-4 w-4" /> {EMAIL}
             </a>
           </div>
         </div>

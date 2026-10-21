@@ -1,3 +1,4 @@
+import { whatsappLink } from '@/contact';
 import {
   Play, Smartphone, Clapperboard, Brain, Megaphone, UserCheck,
   BookOpen, FileText, LayoutTemplate, MessageCircle, ArrowUp, Check, GraduationCap, Sparkles
@@ -185,7 +186,7 @@ export function Course() {
             para atrair clientes pelas redes sociais.
           </p>
           <a
-            href="https://www.instagram.com/sejafastup/"
+            href={whatsappLink('Olá! Vim pelo site da Fast Up e quero garantir minha vaga no curso Corretor de Autoridade.')}
             target="_blank"
             rel="noreferrer noopener"
             className="group mt-7 inline-flex items-center gap-2 rounded-full bg-brand-500 px-8 py-4 text-base font-bold text-ink-900 shadow-glow-lg transition-all hover:bg-brand-400 hover:scale-[1.02]"

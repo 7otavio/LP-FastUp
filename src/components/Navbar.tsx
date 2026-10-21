@@ -1,3 +1,4 @@
+import { whatsappLink } from '@/contact';
 import { useEffect, useRef, useState } from 'react';
 import { ArrowUp, Instagram, Menu, X } from 'lucide-react';
 import { Logo } from './Logo';
@@ -80,7 +81,7 @@ export function Navbar() {
             <a href="https://www.instagram.com/sejafastup/" target="_blank" rel="noreferrer noopener" className="grid h-10 w-10 place-items-center rounded-full border border-white/10 text-ink-200 transition-colors hover:border-brand-500/60 hover:text-brand-400" aria-label="Instagram da Fast Up">
               <Instagram className="h-4.5 w-4.5" />
             </a>
-            <a href="/#contato" className="group inline-flex items-center gap-2 rounded-full bg-brand-500 px-5 py-2.5 text-sm font-semibold text-ink-900 shadow-glow transition-all hover:bg-brand-400 hover:shadow-glow-lg">
+            <a href={whatsappLink()} target="_blank" rel="noreferrer noopener" className="group inline-flex items-center gap-2 rounded-full bg-brand-500 px-5 py-2.5 text-sm font-semibold text-ink-900 shadow-glow transition-all hover:bg-brand-400 hover:shadow-glow-lg">
               Fale conosco <ArrowUp className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" strokeWidth={3} />
             </a>
           </div>
@@ -108,7 +109,7 @@ export function Navbar() {
               ))}
             </nav>
             <a href="https://www.instagram.com/sejafastup/" target="_blank" rel="noreferrer noopener" className="mt-6 flex items-center justify-center gap-2 rounded-xl border border-white/10 px-4 py-3.5 text-sm font-medium text-ink-100"><Instagram className="h-4.5 w-4.5" /> @sejafastup</a>
-            <a href="/#contato" onClick={() => setOpen(false)} className="mt-3 flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-4 py-3.5 text-sm font-semibold text-ink-900">Fale conosco <ArrowUp className="h-4 w-4" strokeWidth={3} /></a>
+            <a href={whatsappLink()} target="_blank" rel="noreferrer noopener" onClick={() => setOpen(false)} className="mt-3 flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-4 py-3.5 text-sm font-semibold text-ink-900">Fale conosco <ArrowUp className="h-4 w-4" strokeWidth={3} /></a>
           </div>
         </div>
       )}
