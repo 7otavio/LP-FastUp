@@ -1,19 +1,12 @@
-import { Target, Eye, ShieldCheck, Zap, Handshake, Sparkles, Gauge, Video, Brain } from 'lucide-react';
-
-const VALUES = [
-  { icon: Gauge, title: 'Foco em resultado', text: 'O marketing existe para vender imóveis, não só para gerar curtidas.' },
-  { icon: Zap, title: 'Agilidade', text: 'Respostas rápidas, entregas rápidas, decisões baseadas em dados.' },
-  { icon: Handshake, title: 'Parceria', text: 'O crescimento do cliente é o nosso crescimento.' },
-  { icon: ShieldCheck, title: 'Transparência', text: 'Clareza sobre o que está sendo feito e quais resultados está trazendo.' },
-  { icon: Sparkles, title: 'Atualização constante', text: 'Novas ferramentas, IA e tendências aplicadas ao dia a dia do corretor.' },
-];
+import { Target, Eye, Sparkles, Video, Brain, Megaphone, RefreshCw } from 'lucide-react';
 
 const DIFFERENTIALS = [
   { icon: Target, title: 'Especialista em um nicho só', text: 'Trabalhamos apenas com o mercado imobiliário e conhecemos a rotina de quem vende imóveis.' },
-  { icon: Video, title: 'Do vídeo ao anúncio', text: 'Produção de conteúdo e tráfego pago na mesma equipe, sem precisar contratar fornecedores diferentes.' },
-  { icon: Gauge, title: 'Foco em venda', text: 'Campanhas pensadas para gerar contatos qualificados e conversas no WhatsApp.' },
+  { icon: Video, title: 'Produção de conteúdo', text: 'Roteiro, gravação e edição de vídeos que valorizam o imóvel e prendem o comprador.' },
+  { icon: Megaphone, title: 'Tráfego pago', text: 'Campanhas pensadas para gerar contatos qualificados e conversas no WhatsApp.' },
   { icon: Sparkles, title: 'Ensinamos também', text: 'Com o curso Corretor de Autoridade, o corretor aprende a fazer o próprio marketing.' },
   { icon: Brain, title: 'Inteligência artificial no processo', text: 'Mais agilidade e qualidade na criação de conteúdo.' },
+  { icon: RefreshCw, title: 'Atualização constante', text: 'Novas ferramentas, IA e tendências aplicadas ao dia a dia do corretor.' },
 ];
 
 export function About() {
@@ -76,25 +69,6 @@ export function About() {
               um só lugar: conteúdo que valoriza o imóvel, anúncios que chegam no comprador certo e
               estratégia pensada para o mercado imobiliário.
             </p>
-          </div>
-        </div>
-
-        {/* Values */}
-        <div className="reveal mt-16">
-          <h3 className="font-display text-2xl font-bold text-white">Valores</h3>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {VALUES.map((v) => (
-              <div
-                key={v.title}
-                className="motion-card group rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition-colors hover:border-brand-500/40"
-              >
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand-500/15 text-brand-400 transition-colors group-hover:bg-brand-500 group-hover:text-ink-900">
-                  <v.icon className="h-5 w-5" />
-                </div>
-                <h4 className="mt-4 text-sm font-bold text-white">{v.title}</h4>
-                <p className="mt-2 text-[13px] leading-relaxed text-ink-300">{v.text}</p>
-              </div>
-            ))}
           </div>
         </div>
 
