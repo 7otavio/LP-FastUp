@@ -29,7 +29,7 @@ export function About() {
           </p>
           <p className="mt-4 text-lg leading-relaxed text-ink-200">
             Nosso nome diz como trabalhamos: <span className="font-semibold text-white">Fast</span>,
-            porque o mercado não espera; <span className="font-semibold text-brand-400">Up</span>,
+            que significa rápido, porque o mercado imobiliário não espera; <span className="font-semibold text-brand-400">Up</span>,
             porque o objetivo é sempre levar o seu negócio para cima. Mais que divulgar, a gente
             trabalha lado a lado com cada parceiro para que ele chegue ao topo.
           </p>
