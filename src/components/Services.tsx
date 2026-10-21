@@ -46,11 +46,11 @@ export function Services() {
         <div className="reveal max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-400">Serviços</p>
           <h2 className="mt-4 font-display text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
-            Para corretores e imobiliárias
+            Tudo o que você precisa para vender mais
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-ink-200">
-            Produção de vídeo e tráfego pago em uma só equipe, com foco em dar visibilidade aos imóveis
-            e gerar contatos qualificados para o WhatsApp.
+            Produção de conteúdo e tráfego pago com estratégia pensada para o mercado imobiliário:
+            mais visibilidade para seus imóveis e mais contatos qualificados no WhatsApp.
           </p>
         </div>
 
