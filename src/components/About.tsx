@@ -1,4 +1,4 @@
-import { Target, Eye, Sparkles, Video, Brain, Megaphone, RefreshCw } from 'lucide-react';
+import { Target, Sparkles, Video, Brain, Megaphone, RefreshCw } from 'lucide-react';
 
 const DIFFERENTIALS = [
   { icon: Target, title: 'Especialista em um nicho só', text: 'Trabalhamos apenas com o mercado imobiliário e conhecemos a rotina de quem vende imóveis.' },
@@ -36,7 +36,7 @@ export function About() {
         </div>
 
         {/* Mission / Vision / Value prop */}
-        <div className="mt-14 grid gap-5 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 lg:grid-cols-2">
           <div className="reveal motion-card rounded-3xl border border-white/10 bg-white/[0.02] p-7">
             <div className="grid h-11 w-11 place-items-center rounded-2xl bg-brand-500/15 text-brand-400">
               <Target className="h-5.5 w-5.5" />
@@ -48,18 +48,7 @@ export function About() {
             </p>
           </div>
 
-          <div className="reveal motion-card rounded-3xl border border-white/10 bg-white/[0.02] p-7" style={{ transitionDelay: '80ms' }}>
-            <div className="grid h-11 w-11 place-items-center rounded-2xl bg-brand-500/15 text-brand-400">
-              <Eye className="h-5.5 w-5.5" />
-            </div>
-            <h3 className="mt-5 font-display text-xl font-bold text-white">Visão</h3>
-            <p className="mt-3 text-[15px] leading-relaxed text-ink-200">
-              Ser referência em marketing imobiliário, reconhecida por quem vende imóveis como a
-              parceira que faz o negócio crescer.
-            </p>
-          </div>
-
-          <div className="reveal motion-card rounded-3xl border border-brand-500/20 bg-gradient-to-br from-brand-500/10 to-transparent p-7" style={{ transitionDelay: '160ms' }}>
+          <div className="reveal motion-card rounded-3xl border border-brand-500/20 bg-gradient-to-br from-brand-500/10 to-transparent p-7" style={{ transitionDelay: '80ms' }}>
             <div className="grid h-11 w-11 place-items-center rounded-2xl bg-brand-500 text-ink-900">
               <Sparkles className="h-5.5 w-5.5" />
             </div>
