@@ -2,7 +2,7 @@
 
 Site responsivo da Fast Up, com serviços de produção de vídeo e tráfego pago, curso Corretor de Autoridade, contato pelo Instagram e página para proprietários.
 
-O projeto usa React, TypeScript, Vite, Tailwind CSS e Remotion. A identidade visual segue o briefing da Fast Up: preto, verde e branco, com as logos originais.
+O projeto usa Astro (com React para a landing), TypeScript, Tailwind CSS e Remotion. O blog e as páginas de solução são gerados em HTML estático a partir de arquivos Markdown. A identidade visual segue o briefing da Fast Up: preto, verde e branco, com as logos originais.
 
 ## Executar localmente
 
@@ -13,7 +13,7 @@ npm ci
 npm run dev
 ```
 
-Abra o endereço exibido pelo Vite, normalmente `http://localhost:5173`.
+Abra o endereço exibido pelo Astro, normalmente `http://localhost:4321`.
 
 ## Verificar e gerar o site
 
@@ -21,7 +21,7 @@ Abra o endereço exibido pelo Vite, normalmente `http://localhost:5173`.
 npm run check
 ```
 
-O comando verifica o TypeScript e gera os arquivos de produção em `dist/`. Para conferir essa versão:
+O comando roda `astro check` (tipos e schemas), `astro build` (gera `dist/`) e `scripts/validar-site.mjs` (links internos, títulos e descriptions únicos, um H1 por página, canibalização de palavra-chave e tamanho mínimo do conteúdo). Para conferir essa versão:
 
 ```sh
 npm run preview
@@ -43,34 +43,49 @@ Para publicação manual, execute `npm run check` e envie a pasta `dist/` pelo N
 
 ## Estrutura
 
-- `src/App.tsx`: composição da página inicial e da página de proprietários.
-- `src/components/`: seções, navegação e componentes visuais.
-- `src/components/motion/`: apresentação em quatro cenas e cenário arquitetônico animado.
-- `src/hooks/`: animação de entrada, seção ativa e preferência de movimento reduzido.
-- `src/index.css` e `tailwind.config.js`: identidade visual e estilos responsivos.
-- `public/assets/`: logos, imagens locais e favicon.
-- `public/_redirects`: suporte à URL curta da página de proprietários.
-- `public/404.html`: página de erro da Fast Up.
-- `index.html` e `proprietarios.html`: entradas do build.
+- `src/pages/`: rotas do site. `index.astro` e `proprietarios.astro` carregam a landing em React; `blog/` e `solucoes/` geram as páginas de conteúdo; `sitemap.xml.ts` gera o sitemap com todas as páginas.
+- `src/App.tsx` e `src/components/`: landing (seções, navegação e componentes visuais).
+- `src/components/site/`: cabeçalho, FAQ, breadcrumb e chamada para ação das páginas de conteúdo.
+- `src/layouts/`: `BaseLayout.astro` (meta tags, canonical, Open Graph) e `ContentLayout.astro` (blog e soluções).
+- `src/content/blog/` e `src/content/solucoes/`: conteúdo em Markdown.
+- `src/content.config.ts`: schemas obrigatórios dos posts e das soluções.
+- `src/config/site.ts`: categorias do blog (`CATEGORIES`), serviços (`SERVICOS`) e públicos (`PUBLICOS`).
+- `scripts/validar-site.mjs`: validação de SEO e conteúdo rodada no `npm run check`.
+- `docs/seo/pauta.md`: histórico das rodadas de conteúdo.
+- `public/`: logos, imagens, favicon, `robots.txt`, `_redirects` e `404.html`.
 
-## Páginas e conteúdo
+## Páginas
 
 - `/`: serviços, quem somos, curso e contato.
-- `/proprietarios` e `/proprietarios.html`: corretagem com marketing para proprietários.
-- Os contatos e a inscrição no curso apontam para [@sejafastup](https://www.instagram.com/sejafastup/).
-- Os quatro módulos, bônus e materiais do curso estão presentes; preços não são exibidos.
-- O vídeo promocional do curso fica em `public/videos/curso-corretor-de-autoridade.mp4` (capa em `curso-poster.jpg`).
+- `/proprietarios/`: corretagem com marketing para proprietários (`/proprietarios.html` redireciona para cá).
+- `/blog/` e `/blog/<slug>/`: posts.
+- `/solucoes/` e `/solucoes/<slug>/`: serviço aplicado a um nicho.
 
-## Animação
+## Blog: como publicar um post
 
-A apresentação do topo dura 18 segundos e mostra gravação de imóvel com celular, edição, tráfego pago e a marca Fast Up. O visitante pode pausar ou escolher uma cena. A reprodução pausa fora da tela e quando a aba fica oculta.
+1. Crie `src/content/blog/<slug>.md`. O nome do arquivo vira a URL `/blog/<slug>/`.
+2. Preencha o frontmatter conforme o schema `blog` de `src/content.config.ts`:
 
-O fundo usa arquitetura em SVG, luzes verdes discretas e movimento suave. Há um controle próprio de pausa. Quando o dispositivo solicita movimento reduzido, a apresentação e o cenário usam alternativas estáticas.
+```yaml
+---
+title: "Título com a palavra-chave principal (até 70 caracteres)"
+description: "Resumo único de 120 a 160 caracteres."
+pubDate: 2026-11-12
+category: trafego-pago # um slug de CATEGORIES em src/config/site.ts
+keywords:
+  - palavra-chave principal (a primeira é a principal)
+  - variação
+faq: # 3 ou 4 perguntas
+  - pergunta: "Pergunta?"
+    resposta: "Resposta direta."
+pillar: false # true só no post pilar da categoria
+---
+```
 
-A estrutura por cenas foi inspirada no [workflow de Remotion indicado no projeto](https://dfolloni.substack.com/p/criando-videos-com-claude-code-workflow). A reprodução usa [Remotion Player](https://www.remotion.dev/docs/player); não há MP4 exportado. Consulte a [licença do Remotion](https://www.remotion.dev/license) para suas condições de uso.
+3. Escreva o corpo em Markdown, com 1.100 a 1.800 palavras. Não use `#` (o título já é o H1); use `##` para os subtítulos, que viram o sumário.
+4. Inclua pelo menos 3 links internos com URL relativa terminando em `/`: o post pilar da categoria, 1 ou 2 posts relacionados e 1 página de `/solucoes/<slug>/`.
+5. Rode `npm run check` e corrija os erros apontados.
 
-## Ativos
+Páginas de solução seguem o schema `solucoes` (veja `src/content/solucoes/trafego-pago-para-loteamentos.md` como exemplo): slug `<servico>-para-<nicho>`, corpo de 300 a 500 palavras com 2 ou 3 subtítulos `##` e 2 ou 3 posts em `relacionados`.
 
-As logos foram extraídas do briefing fornecido para o projeto. As imagens ilustrativas são do Unsplash; as famílias Sora e Inter são carregadas pelo Google Fonts. Os arquivos Manrope e `OFL.txt` da versão anterior estão preservados em `public/assets/`.
-
-`studio-camera.png` é um ativo gerado de uma versão anterior; a apresentação atual usa um celular desenhado em SVG e a fotografia `architecture.jpg` no visor.
+Regras de conteúdo: nada de estatísticas, preços, cases ou resultados inventados (números só em exemplos marcados como hipotéticos), nada de páginas por cidade ou bairro e nada de travessão longo no texto.

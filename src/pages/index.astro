@@ -1,0 +1,13 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import App from '@/App';
+---
+
+<BaseLayout
+  title="Fast Up — MKT Imobiliário | Você no topo do mercado imobiliário"
+  description="Fast Up — MKT Imobiliário. Marketing digital focado no mercado imobiliário: produção de vídeo, tráfego pago e o curso Corretor de Autoridade. Você no topo do mercado imobiliário."
+  ogTitle="Fast Up — MKT Imobiliário"
+  ogDescription="Você no topo do mercado imobiliário. Marketing digital para corretores, imobiliárias e proprietários."
+>
+  <div id="root"><App client:only="react" /></div>
+</BaseLayout>

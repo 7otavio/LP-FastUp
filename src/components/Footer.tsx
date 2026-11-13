@@ -3,11 +3,13 @@ import { ArrowUp, Instagram, MessageCircle, Mail } from 'lucide-react';
 import { Logo } from './Logo';
 
 const NAV = [
-  { id: 'inicio', label: 'Início' },
-  { id: 'quem-somos', label: 'Quem somos' },
-  { id: 'servicos', label: 'Serviços' },
-  { id: 'curso', label: 'Curso' },
-  { id: 'contato', label: 'Contato' },
+  { href: '/#inicio', label: 'Início' },
+  { href: '/#quem-somos', label: 'Quem somos' },
+  { href: '/#servicos', label: 'Serviços' },
+  { href: '/#curso', label: 'Curso' },
+  { href: '/solucoes/', label: 'Soluções' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/#contato', label: 'Contato' },
 ];
 
 export function Footer() {
@@ -50,9 +52,9 @@ export function Footer() {
             <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-400">Navegação</h4>
             <ul className="mt-4 space-y-2.5">
               {NAV.map((n) => (
-                <li key={n.id}>
+                <li key={n.href}>
                   <a
-                    href={`/#${n.id}`}
+                    href={n.href}
                     className="group inline-flex items-center gap-1.5 text-sm text-ink-200 transition-colors hover:text-white"
                   >
                     <ArrowUp className="h-3.5 w-3.5 text-brand-500/0 transition-colors group-hover:text-brand-400" />
@@ -69,7 +71,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5 text-sm text-ink-200">
               <li>Produção de vídeo imobiliário</li>
               <li>Tráfego pago (Meta Ads)</li>
-              <li><a href="/proprietarios" className="transition-colors hover:text-brand-300">Para proprietários — corretagem ↗</a></li>
+              <li><a href="/proprietarios/" className="transition-colors hover:text-brand-300">Para proprietários — corretagem ↗</a></li>
               <li>Curso Corretor de Autoridade</li>
             </ul>
           </div>

@@ -4,26 +4,29 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "check": "npm run typecheck && npm run build",
+    "dev": "astro dev",
+    "build": "astro build",
+    "check": "astro check && astro build && node scripts/validar-site.mjs",
+    "validar": "node scripts/validar-site.mjs",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "typecheck": "tsc --noEmit -p tsconfig.app.json"
+    "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/react": "^4.4.2",
     "@remotion/player": "4.0.536",
     "@supabase/supabase-js": "^2.57.4",
+    "astro": "^5.18.2",
     "lucide-react": "^0.446.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "remotion": "4.0.536"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.12",
     "@eslint/js": "^9.9.1",
+    "@tailwindcss/typography": "^0.5.20",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.18",
     "eslint": "^9.9.1",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
@@ -33,6 +36,6 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.3.0",
-    "vite": "^5.4.2"
+    "yaml": "^2.9.1"
   }
 }

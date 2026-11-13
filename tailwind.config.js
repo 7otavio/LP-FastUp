@@ -1,6 +1,8 @@
+import typography from '@tailwindcss/typography';
+
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./src/**/*.{astro,html,js,ts,jsx,tsx,md,mdx}'],
   theme: {
     extend: {
       spacing: { '4.5': '1.125rem', '5.5': '1.375rem' },
@@ -79,5 +81,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [typography],
 };

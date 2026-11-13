@@ -13,3 +13,4 @@ output/
 *.log
 *.zip
 .DS_Store
+.astro/

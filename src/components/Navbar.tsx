@@ -75,6 +75,7 @@ export function Navbar() {
                 {active === link.id && <span className="absolute inset-x-3 -bottom-0.5 h-px bg-brand-400" />}
               </a>
             ))}
+            <a href="/blog/" className="rounded-full px-4 py-2 text-sm font-medium text-ink-200 transition-colors hover:text-white">Blog</a>
           </div>
 
           <div className="hidden items-center gap-3 lg:flex">
@@ -107,6 +108,9 @@ export function Navbar() {
                   {link.label}<ArrowUp className="h-4 w-4 text-brand-400" />
                 </a>
               ))}
+              <a href="/blog/" onClick={() => setOpen(false)} className="flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-ink-200 transition-colors hover:bg-white/5 hover:text-white">
+                Blog<ArrowUp className="h-4 w-4 text-brand-400" />
+              </a>
             </nav>
             <a href="https://www.instagram.com/sejafastup/" target="_blank" rel="noreferrer noopener" className="mt-6 flex items-center justify-center gap-2 rounded-xl border border-white/10 px-4 py-3.5 text-sm font-medium text-ink-100"><Instagram className="h-4.5 w-4.5" /> @sejafastup</a>
             <a href={whatsappLink()} target="_blank" rel="noreferrer noopener" onClick={() => setOpen(false)} className="mt-3 flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-4 py-3.5 text-sm font-semibold text-ink-900">Fale conosco <ArrowUp className="h-4 w-4" strokeWidth={3} /></a>

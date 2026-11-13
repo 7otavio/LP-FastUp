@@ -1,0 +1,45 @@
+---
+import ContentLayout from '@/layouts/ContentLayout.astro';
+import Breadcrumb from '@/components/site/Breadcrumb.astro';
+import { SERVICOS, publico } from '@/config/site';
+import { breadcrumbLd, getSolucoes, solucaoUrl } from '@/lib/content';
+
+const solucoes = await getSolucoes();
+const grupos = SERVICOS.map((serv) => ({ serv, itens: solucoes.filter((s) => s.data.servico === serv.slug) })).filter((g) => g.itens.length > 0);
+const jsonLd = [breadcrumbLd([{ name: 'Início', path: '/' }, { name: 'Soluções', path: '/solucoes/' }])];
+---
+
+<ContentLayout
+  title="Soluções da Fast Up | Vídeo e tráfego pago por tipo de imóvel"
+  description="Como a Fast Up aplica produção de vídeo e tráfego pago em cada tipo de operação imobiliária: lançamentos, loteamentos, alto padrão, usados e mais."
+  jsonLd={jsonLd}
+>
+  <div class="mx-auto max-w-5xl container-px pb-20 pt-10 sm:pt-14">
+    <Breadcrumb items={[{ label: 'Início', href: '/' }, { label: 'Soluções' }]} />
+    <header class="mt-8 max-w-3xl">
+      <p class="text-xs font-semibold uppercase tracking-[0.22em] text-brand-400">Soluções</p>
+      <h1 class="mt-4 font-display text-4xl font-extrabold leading-tight text-white sm:text-5xl">Uma estratégia para cada tipo de imóvel</h1>
+      <p class="mt-5 text-lg leading-relaxed text-ink-200">
+        Vender lote não é igual a vender apartamento na planta, e um imóvel de alto padrão não se anuncia como um usado de bairro. Veja como a Fast Up adapta vídeo e tráfego pago para cada caso.
+      </p>
+    </header>
+
+    {grupos.map(({ serv, itens }) => (
+      <section aria-labelledby={`serv-${serv.slug}`} class="mt-16">
+        <h2 id={`serv-${serv.slug}`} class="font-display text-2xl font-bold text-white sm:text-3xl">{serv.nome}</h2>
+        <p class="mt-2 text-ink-300">{serv.descricao}</p>
+        <ul class="mt-6 grid gap-4 sm:grid-cols-2">
+          {itens.map((s) => (
+            <li>
+              <a href={solucaoUrl(s.id)} class="flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-colors hover:border-brand-500/50">
+                <span class="text-xs font-semibold uppercase tracking-[0.18em] text-brand-400">{publico(s.data.publico)?.nome}</span>
+                <span class="mt-2 font-display text-lg font-semibold leading-snug text-white">{s.data.title}</span>
+                <span class="mt-3 text-sm leading-relaxed text-ink-300">{s.data.description}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</ContentLayout>
