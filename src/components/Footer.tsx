@@ -69,7 +69,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5 text-sm text-ink-200">
               <li>Produção de vídeo imobiliário</li>
               <li>Tráfego pago (Meta Ads)</li>
-              <li><a href="/proprietarios.html" className="transition-colors hover:text-brand-300">Para proprietários — corretagem ↗</a></li>
+              <li><a href="/proprietarios" className="transition-colors hover:text-brand-300">Para proprietários — corretagem ↗</a></li>
               <li>Curso Corretor de Autoridade</li>
             </ul>
           </div>
